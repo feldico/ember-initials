@@ -2,7 +2,6 @@ import ImageAvatarComponent from '../image';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { reads } from '@ember/object/computed';
-import { assign } from '@ember/polyfills';
 
 import initialsFor from 'ember-initials/utils/initials';
 import Store from 'ember-initials/utils/store';
@@ -108,7 +107,7 @@ class InitialsAvatarComponent extends ImageAvatarComponent {
   }
 
   set backgroundStyles(value) {
-    return this._backgroundStyles = assign({}, this.defaultBackgroundStyles, value);
+    return this._backgroundStyles = Object.assign({}, this.defaultBackgroundStyles, value);
   }
 
   get textStyles() {
@@ -116,7 +115,7 @@ class InitialsAvatarComponent extends ImageAvatarComponent {
   }
 
   set textStyles(value) {
-    return this._textStyles = assign({}, this.defaultTextStyles, value);
+    return this._textStyles = Object.assign({}, this.defaultTextStyles, value);
   }
 
   get backgroundColor() {
